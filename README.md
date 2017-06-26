@@ -1,7 +1,7 @@
 # android 倒计时控件
 
-1、添加 compile 'com.github.zhangkexpz:Countdown:v1.0'
-2、添加 allprojects {
+# 1、添加 compile 'com.github.zhangkexpz:Countdown:v1.0'
+# 2、添加 allprojects {
     repositories {
         jcenter()
         maven { url 'https://jitpack.io' }
