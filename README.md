@@ -16,10 +16,11 @@
         //开始倒计时  默认60s
         button.start(MainActivity.this);
         //开始倒计时,并设置倒计时时间
-         button.start(MainActivity.this,100);
+        button.start(MainActivity.this,100);
         //设置点击监听
+        
+        
         button.setOnCountDownListener(this);
-
         //倒计时时间
         @Override
         public void timeCountdown(int time) {
