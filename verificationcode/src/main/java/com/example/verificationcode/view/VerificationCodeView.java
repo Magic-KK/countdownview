@@ -36,6 +36,11 @@ public class VerificationCodeView extends Button {
     Timer validateTimer = new Timer();
     private Activity mActivity;
 
+    /**
+     * 是否开始
+     */
+    private boolean isstart;
+
     public Countdown getOnCountDownListener() {
         return onCountDownListener;
     }
@@ -73,6 +78,13 @@ public class VerificationCodeView extends Button {
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (onCountDownListener != null) {
+                    isstart = onCountDownListener.beforeStart();
+                }
+                if (!isstart) {
+                    return;
+                }
+
                 mActivity = activity;
                 setValidateCodeTime();
             }
@@ -90,6 +102,15 @@ public class VerificationCodeView extends Button {
         setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (onCountDownListener != null) {
+                    isstart = onCountDownListener.beforeStart();
+                }
+
+                if (!isstart) {
+                    return;
+                }
+
                 mCountdowntime = time;
                 mActivity = activity;
                 setValidateCodeTime();
@@ -116,6 +137,13 @@ public class VerificationCodeView extends Button {
     public interface Countdown {
 
         /**
+         * 倒计时开始之前的逻辑
+         *
+         * @return true 倒计时开始 false 倒计时结束
+         */
+        boolean beforeStart();
+
+        /**
          * 倒计时剩余时间
          *
          * @param time
@@ -134,7 +162,6 @@ public class VerificationCodeView extends Button {
      */
     private void setValidateCodeTime() {
         mNowtime = mCountdowntime;
-
         validateTask = new TimerTask() {
             @Override
             public void run() {
