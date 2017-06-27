@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.livvy.verificationcode.MainActivity">
 
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入手机"
+        android:inputType="number" />
 
     <com.example.verificationcode.view.VerificationCodeView
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="验证码点击" />
+        android:text="获取验证码" />
 
     <Button
-        android:id="@+id/err"
+        android:id="@+id/btn_err"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="停止" />
+        android:text="取消" />
 
 
 </LinearLayout>

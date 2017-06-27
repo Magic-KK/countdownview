@@ -67,7 +67,6 @@ public class VerificationCodeView extends Button {
 
     }
 
-
     /**
      * 验证码倒计时开始
      *
